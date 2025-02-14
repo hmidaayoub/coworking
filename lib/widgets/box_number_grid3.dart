@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BoxNumberIndicator extends StatefulWidget {
+class BoxNumberIndicator1 extends StatefulWidget {
   final double width;
   final double height;
-  final int number;
+  final String number;
 
-  const BoxNumberIndicator({
+  const BoxNumberIndicator1({
     Key? key,
     required this.width,
     required this.height,
@@ -16,7 +16,7 @@ class BoxNumberIndicator extends StatefulWidget {
   _BoxNumberIndicatorState createState() => _BoxNumberIndicatorState();
 }
 
-class _BoxNumberIndicatorState extends State<BoxNumberIndicator> {
+class _BoxNumberIndicatorState extends State<BoxNumberIndicator1> {
   bool isRed = false; // Initial color state
   bool isLongPressing = false; // Track if long press is active
 
@@ -55,12 +55,15 @@ class _BoxNumberIndicatorState extends State<BoxNumberIndicator> {
           ],
         ),
         alignment: Alignment.center,
-        child: Text(
-          '${widget.number}',
-          style: TextStyle(
-            fontSize: widget.width * 0.3,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+        child: RotatedBox(
+          quarterTurns: 1, // Rotate text 90 degrees counterclockwise
+          child: Text(
+            '${widget.number}',
+            style: TextStyle(
+              fontSize: widget.width * 0.3,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
       ),
